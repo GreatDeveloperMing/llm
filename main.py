@@ -37,5 +37,16 @@ def get_employee_by_name(name=None):
             return {}, 404
 
 
+@app.route(URL_ROOT + "/employee/age/<age>", methods=['GET'])
+def get_employee_by_age(age=None):
+    if age is None:
+        return {}, 404
+    else:
+        res = list(filter(lambda x: (x['age'] == int(age)), employee_list))
+        if res:
+            return res, 200
+        else:
+            return {}, 404
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', threaded=True, debug=True, port=80)
