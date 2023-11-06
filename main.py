@@ -34,7 +34,6 @@ def get_employee_by_name(name=None):
         if res:
             return res[0], 200
         else:
-            return {}, 404
 
 
 if __name__ == '__main__':
